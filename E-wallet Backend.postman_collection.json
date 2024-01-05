@@ -1,0 +1,511 @@
+{
+	"info": {
+		"_postman_id": "1944d942-345e-476c-a218-d169c4b6c585",
+		"name": "E-wallet Backend",
+		"description": "Welcome to the E-Wallet Backend API, your gateway to seamless electronic transactions and digital wallet management. This API empowers developers to integrate secure and scalable e-wallet functionality into their applications.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25966629"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8040/api/v1/auth/login?phone_number=12312312&password=password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8040",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							],
+							"query": [
+								{
+									"key": "phone_number",
+									"value": "12312312"
+								},
+								{
+									"key": "password",
+									"value": "password"
+								}
+							]
+						},
+						"description": "Request Authentication For Login"
+					},
+					"response": [
+						{
+							"name": "Login Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8040/api/v1/auth/login?phone_number=12312312&password=password",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8040",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"login"
+									],
+									"query": [
+										{
+											"key": "phone_number",
+											"value": "12312312"
+										},
+										{
+											"key": "password",
+											"value": "password"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\" : \"Login Success\",\n    \"errorCode\" : \"\",\n    \"data\" : {\n        \"userId\" : 1, \n        \"username\" :\"Aufa\",\n        \"userPhone\" : \"0821312312\",\n        \"userEmail\" : \"sndalknds@gmail.com\",\n        \"userPicture\" : \"sdasa.png\",\n        \"balance\" : 0\n    }\n    \n}"
+						},
+						{
+							"name": "Login Failed",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8040/api/v1/auth/login?phone_number=qweqwe&password=ewqeqwew",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8040",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"login"
+									],
+									"query": [
+										{
+											"key": "phone_number",
+											"value": "qweqwe"
+										},
+										{
+											"key": "password",
+											"value": "ewqeqwew"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\" : \"Incorrect phone number/password, please try again\",\n    \"errorCode\" : \"401\",\n    \"data\" : {}\n}"
+						}
+					]
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_name",
+									"value": "rahmn12213",
+									"type": "text"
+								},
+								{
+									"key": "user_phone",
+									"value": "0821321312121",
+									"type": "text"
+								},
+								{
+									"key": "user_email",
+									"value": "casdwasd@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "user_password",
+									"value": "dsadsad",
+									"type": "text"
+								},
+								{
+									"key": "user_picture",
+									"type": "file",
+									"src": "/Users/captaufa/Downloads/setnov.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4050/api/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4050",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Simple Login Access using username and passsword, using Request Params to get the data from the backend."
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Profile Details",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\" : 12312231\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8040/api/v1/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8040",
+							"path": [
+								"api",
+								"v1",
+								"user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Profile Details",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_id\" : 12313 \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8040/api/v1/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8040",
+									"path": [
+										"api",
+										"v1",
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"authorize\" : true,\n    \"data\" : {\n    \"user_name\" : \"Aufa Anasin\",\n    \"user_phone\" : \"082131231\",\n    \"user_email\" : \"aufaanasin@gmail.com\",\n    \"user_picture\" : \"aufaanasin.png\"\n    }\n}"
+						},
+						{
+							"name": "Profile Details Unauthorize",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_id\" : 12313 \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8040/api/v1/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8040",
+									"path": [
+										"api",
+										"v1",
+										"user"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"authorize\" : false,\n    \"data\" : \"\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Change User Profile Picture",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_picture",
+									"type": "file",
+									"src": "/Users/captaufa/Downloads/wkwk.JPG"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4050/api/v1/user/15/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4050",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"15",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4050/api/v1/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4050",
+							"path": [
+								"api",
+								"v1",
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "This endpoint is contain user data, such as username, password, email, etc."
+		},
+		{
+			"name": "Transaction",
+			"item": [
+				{
+					"name": "Transfer Amount",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"transaction_amount\" : 1231321,\n    \"transaction_time\" : {{$timestamp}},\n    \"transaction_status\" : \"Succesfully\",\n    \"transaction_sender\" : 1231231, \n    \"transaction_receiver\" : 231312,\n    \"transaction_type\" : \"Transfer\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8040/api/v1/transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8040",
+							"path": [
+								"api",
+								"v1",
+								"transaction"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Transfer Amount",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"transaction_amount\" : 1231321,\n    \"transaction_time\" : {{$timestamp}},\n    \"transaction_status\" : \"Succesfully\",\n    \"transaction_sender\" : 1231231, \n    \"transaction_receiver\" : 231312,\n    \"transaction_type\" : \"Transfer\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8040/api/v1/transaction",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8040",
+									"path": [
+										"api",
+										"v1",
+										"transaction"
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "\"Transaction Success\""
+						},
+						{
+							"name": "Transfer Failed",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"transaction_amount\" : 1231321,\n    \"transaction_time\" : {{$timestamp}},\n    \"transaction_status\" : \"Succesfully\",\n    \"transaction_sender\" : 1231231, \n    \"transaction_receiver\" : 231312,\n    \"transaction_type\" : \"Transfer\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8040/api/v1/transaction",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8040",
+									"path": [
+										"api",
+										"v1",
+										"transaction"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "\"Transaction Failed\""
+						}
+					]
+				}
+			],
+			"description": "API to make user can be transaction to each other."
+		}
+	]
+}
